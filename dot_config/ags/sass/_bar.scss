@@ -1,0 +1,136 @@
+@use 'sass:color';
+@import 'colors';
+
+$margin: 6px 6px;
+$padding: 0px 20px;
+
+@mixin bullet {
+    margin: $margin;
+    background-color: $background0;
+    border-radius: 9999px;
+    padding: $padding;
+}
+
+.bar-window {
+    font-weight: 500;
+    color: $foreground;
+    background-color: $background;
+    border-bottom: 2px solid $background0;
+}
+
+.bar-workspaces-container {
+    @include bullet();
+    margin: 6px 6px 6px 12px;
+    padding: 6px;
+}
+
+.bar-workspaces-button {
+    border-radius: 9999px;
+    min-width: 1.6rem;
+    margin: 0px 3px;
+}
+
+.bar-workspaces-button:hover {
+    background-color: darken($color: $color1, $amount: 5);
+}
+
+.bar-workspaces-focused {
+    background-color: $color1;
+    color: white;
+    animation: flash 500ms forwards;
+}
+
+.bar-workspaces-not-focused {
+    background-color: $background1;
+    transition: all 250ms;
+}
+
+@keyframes flash {
+    from {
+        color: white;
+        border-top-color: white;
+        background-color: white;
+    }
+
+    to {
+        background-color: $color1;
+    }
+}
+
+.bar-focused {
+    @include bullet();
+}
+
+$border-size: 2px;
+
+.bar-mpris {
+    @include bullet();
+
+    padding: calc(6px - $border-size) 20px;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    background-blend-mode: darken;
+    background-position: 50%;
+    transition: 250ms all;
+}
+
+.bar-mpris-playing {
+    border: $border-size solid $color1;
+}
+
+.bar-mpris-paused {
+    border: $border-size solid $background1;
+}
+
+.bar-tray-icon {
+    background-color: $background1;
+    padding: 4px;
+    margin: 0px 4px;
+    border-radius: 9999px;
+    transition: all 250ms;
+}
+
+.bar-tray-icon:hover {
+    background-color: $color1
+}
+
+.bar-tray-container {
+    @include bullet();
+    padding: 6px;
+    margin: 6px 12px 6px 6px;
+}
+
+.bar-audio {
+    margin: 0px 12px 0px 0px;
+}
+
+.bar-audio:hover {
+    background-color: $background1
+}
+
+.bar-right-container {
+    @include bullet();
+}
+
+menu {
+    background-color: $background0;
+    color: $foreground;
+    border-radius: 12px;
+    padding: 10px;
+    border: 2px solid $background1;
+}
+
+menuitem {
+    padding: 4px 12px;
+    transition: 250ms all;
+    border-radius: 9999px;
+}
+
+menuitem:hover {
+    background-color: $background1;
+}
+
+separator {
+    background-color: $color1;
+    min-height: 1px;
+    margin: 5px 0px;
+}
